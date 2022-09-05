@@ -99,18 +99,18 @@ public:
 	Tester(sn, nm, conf), func(fu) {}
 	string test() { // Проверка правильности функции для всех значений мантисс при нулевом порядке
 		ostringstream str;
-		//str << shortname;
+		str << shortname;
 		for (float x = 0.; x < 1.; x += xStep) {
 			float etalon = flMathFunc(x);
 			float real = func(x);
 			if (fabs(etalon - real) > err) {
-				str <<  ": Ошибка func(" << x << ") = " << real << " != " << etalon;
+				str << fabs(etalon - real) << ": Ошибка func(" << x << ") = " << real << " != " << etalon << endl;
 				proper = false;
-				return str.str();
+                cout << str.str();
 			}
 		}
 		proper = true;
-		str << shortname << " - OK";
+		str << " - OK";
 		return str.str();
 	}
 	void measure() { // Замеры времени для repeat значений x in [0, 1) с равномерным шагом

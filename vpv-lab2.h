@@ -7,14 +7,14 @@
 #include <string>
 #include <algorithm>
 #include <vector>
-#include <bern.h>
+#include "bern.h"
 
 using namespace std;
 
 #define LEN_RES 19  // разрядность результата функции, в младшем бите которого может быть ошибка
 #define MAX_ERR (float)(1.0/(1 << LEN_RES)) // максимум погрешности равен 2^(-LEN_RES)
 #define LEN_POLINOM 5 // достаточно иметь 5 членов ряда 
-#define X_STEP ((float)1.0/(float)(1 << 24)) // 2^(-24) - вес младшего разряда мантиссы float
+#define X_STEP ((float)1.0/(float)(1 << 5)) // 2^(-24) - вес младшего разряда мантиссы float
 
 // Значения факториалов 
 #define FACT3 (float)(2 * 3)

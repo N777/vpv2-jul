@@ -24,9 +24,15 @@ float flMathFunc(float x) {
 
 // Цикл формулы ряда 1 - x^2/3! + x^4/5! - x^6/7! + x^8/9! через цикл sum += x^2n/(2n+1)!
 float flCyNoGorn(float x) {
-	float sum = 0;
+    float sum = 0, test = 0.489914;
+
+    if (x >= test){
+        printf("");
+    }
+
 	for (int n = 1; n < LEN_POLINOM; n++) {
-        sum += (float) ((pow(2, 2 * n - 1) * (pow(2, 2 * n) - 1) * bern(n) * pow(x, 2 * n)) / (n * factorial(2 * n)));
+        sum -= (float) ((pow(2, 2 * n - 1) * (pow(2, 2 * n) - 1) * abs(bern(2*n)) * pow(x, 2 * n))
+                / (n * factorial(2 * n)));
 	}
 	return sum;
 }
