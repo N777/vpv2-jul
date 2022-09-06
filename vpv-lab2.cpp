@@ -43,12 +43,12 @@ int main(int argc, char * argv[])
 	// Создание массива объектов тестирования
 	vector <Tester * > arr = {
 #if GOFLOAT != 0
-	new TestFloat("flMathFunc","Float - библиотечная реализация sin(x)/x", flMathFunc, config),
-	new TestFloat("flCyNoGorn","Float - цикл формулы ряда", flCyNoGorn, config),
-	new TestFloat("flNoCyNoGorn", "Float - безцикловая формула ряда", flNoCyNoGorn, config),
-	new TestFloat("flCycleGorn", "Float - цикл схемы Горнера", flCycleGorn, config),
-	new TestFloat("flNoCyGornArr", "Float - безцикловая схема Горнера(массив коэффициентов)", flNoCyGornArr, config),
-	new TestFloat("flNoCyGornConst", "Float - безцикловая схема Горнера(константы)", flNoCyGornConst, config)
+//	new TestFloat("flMathFunc","Float - библиотечная реализация sin(x)/x", flMathFunc, config),
+//	new TestFloat("flCyNoGorn","Float - цикл формулы ряда", flCyNoGorn, config),
+    new TestFloat("flNoCyNoGorn", "Float - безцикловая формула ряда", flNoCyNoGorn, config),
+//	new TestFloat("flCycleGorn", "Float - цикл схемы Горнера", flCycleGorn, config),
+//	new TestFloat("flNoCyGornArr", "Float - безцикловая схема Горнера(массив коэффициентов)", flNoCyGornArr, config),
+//	new TestFloat("flNoCyGornConst", "Float - безцикловая схема Горнера(константы)", flNoCyGornConst, config)
 #if GOFIX + GOTABLE > 0 
 	, 
 #endif	
@@ -75,17 +75,17 @@ int main(int argc, char * argv[])
 		return 1;
 #endif
 	for (Tester * test : arr) test->verify();
-	cout << endl << "Замеры времени ..." << endl;
-	for(int n = 0; n < config.pass; n++) {
-		cout << endl << "Проход " << (n + 1) << endl;
-		if (config.lenPrintLog > 0)
-			cout << "Первые " << config.lenPrintLog << " результатов замеров времени:" << endl;
-		for (Tester * test : arr) test->timeSpent();
-		report.calc();
-		cout <<endl << "Итоги:" << endl;
-		report.print();
-		report.log.clear();
-	}
+//	cout << endl << "Замеры времени ..." << endl;
+//	for(int n = 0; n < config.pass; n++) {
+//		cout << endl << "Проход " << (n + 1) << endl;
+//		if (config.lenPrintLog > 0)
+//			cout << "Первые " << config.lenPrintLog << " результатов замеров времени:" << endl;
+//		for (Tester * test : arr) test->timeSpent();
+//		report.calc();
+//		cout <<endl << "Итоги:" << endl;
+//		report.print();
+//		report.log.clear();
+//	}
 	return 0;
 
 }

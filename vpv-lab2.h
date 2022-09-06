@@ -13,8 +13,8 @@ using namespace std;
 
 #define LEN_RES 19  // разрядность результата функции, в младшем бите которого может быть ошибка
 #define MAX_ERR (float)(1.0/(1 << LEN_RES)) // максимум погрешности равен 2^(-LEN_RES)
-#define LEN_POLINOM 5 // достаточно иметь 5 членов ряда 
-#define X_STEP ((float)1.0/(float)(1 << 5)) // 2^(-24) - вес младшего разряда мантиссы float
+#define LEN_POLINOM 13 // достаточно иметь 5 членов ряда
+#define X_STEP ((float)1.0/(float)(1 << 24)) // 2^(-24) - вес младшего разряда мантиссы float
 
 // Значения факториалов 
 #define FACT3 (float)(2 * 3)
@@ -27,6 +27,36 @@ using namespace std;
 #define DIV1_FACT5 (1./FACT5)
 #define DIV1_FACT7 (1./FACT7)
 #define DIV1_FACT9 (1./FACT9)
+
+
+// Моя залупа
+#define DOUBLE_FACT1 (float)(2 * 1)
+#define DOUBLE_FACT2 (float)(2 * 1 * 2)
+#define DOUBLE_FACT3 (float)(2 * 1 * 2 * 3)
+#define DOUBLE_FACT4 (float)(2 * 1 * 2 * 3 * 4)
+#define DOUBLE_FACT5 (float)(2 * 1 * 2 * 3 * 4 * 5)
+#define DOUBLE_FACT6 (float)(2 * 1 * 2 * 3 * 4 * 5 * 6)
+#define DOUBLE_FACT7 (float)(2 * 1 * 2 * 3 * 4 * 5 * 6 * 7)
+#define DOUBLE_FACT8 (float)(2 * 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8)
+#define DOUBLE_FACT9 (float)(2 * 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9)
+#define DOUBLE_FACT10 (float)(2 * 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9 * 10)
+#define DOUBLE_FACT11 (float)(2 * 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9 * 10 * 11)
+#define DOUBLE_FACT12 (float)(2 * 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9 * 10 * 11 * 12)
+#define DOUBLE_FACT13 (float)(2 * 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9 * 10 * 11 * 12 * 13)
+
+#define BERN1 (float)(1 / 6)
+#define BERN2 (float)(1 / 30)
+#define BERN3 (float)(1 / 42)
+#define BERN4 (float)(1 / 30)
+#define BERN5 (float)(5 / 66)
+#define BERN6 (float)(691 / 2730)
+#define BERN7 (float)(7 / 6)
+#define BERN8 (float)(3617 / 510)
+#define BERN9 (float)(43867 / 798)
+#define BERN10 (float)(174611 / 330)
+#define BERN11 (float)(854513 / 138)
+#define BERN12 (float)(236364091 / 2730)
+#define BERN13 (float)(8553103 / 6)
 
 typedef float(*FloatFunc)(float); // Указатель на функцию вещественных переменн
 

@@ -106,7 +106,7 @@ public:
 			if (fabs(etalon - real) > err) {
 				str << fabs(etalon - real) << ": Îøèáêà func(" << x << ") = " << real << " != " << etalon << endl;
 				proper = false;
-                cout << str.str();
+                return str.str();
 			}
 		}
 		proper = true;
