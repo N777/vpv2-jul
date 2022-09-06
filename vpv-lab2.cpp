@@ -20,9 +20,9 @@
 using namespace std;
 
 // Устанавливая в 0 следующие константы, можно отключать времязатратные фазы, не участвующие в отладке
-#define GOFLOAT 1 // включение-выключение процессов испытания функций с плавающей точкой
+#define GOFLOAT 0 // включение-выключение процессов испытания функций с плавающей точкой
 #define GOFIX 0   // включение-выключение процессов испытания функций с фиксированной точкой
-#define GOTABLE 0 // включение-выключение процессов испытания таблично-алгоритмических функций
+#define GOTABLE 1 // включение-выключение процессов испытания таблично-алгоритмических функций
 
 Report report;
 Config config( 
@@ -43,12 +43,12 @@ int main(int argc, char * argv[])
 	// Создание массива объектов тестирования
 	vector <Tester * > arr = {
 #if GOFLOAT != 0
-//	new TestFloat("flMathFunc","Float - библиотечная реализация sin(x)/x", flMathFunc, config),
-//	new TestFloat("flCyNoGorn","Float - цикл формулы ряда", flCyNoGorn, config),
+	new TestFloat("flMathFunc","Float - библиотечная реализация sin(x)/x", flMathFunc, config),
+	new TestFloat("flCyNoGorn","Float - цикл формулы ряда", flCyNoGorn, config),
     new TestFloat("flNoCyNoGorn", "Float - безцикловая формула ряда", flNoCyNoGorn, config),
-//	new TestFloat("flCycleGorn", "Float - цикл схемы Горнера", flCycleGorn, config),
-//	new TestFloat("flNoCyGornArr", "Float - безцикловая схема Горнера(массив коэффициентов)", flNoCyGornArr, config),
-//	new TestFloat("flNoCyGornConst", "Float - безцикловая схема Горнера(константы)", flNoCyGornConst, config)
+	new TestFloat("flCycleGorn", "Float - цикл схемы Горнера", flCycleGorn, config),
+	new TestFloat("flNoCyGornArr", "Float - безцикловая схема Горнера(массив коэффициентов)", flNoCyGornArr, config),
+	new TestFloat("flNoCyGornConst", "Float - безцикловая схема Горнера(константы)", flNoCyGornConst, config)
 #if GOFIX + GOTABLE > 0 
 	, 
 #endif	

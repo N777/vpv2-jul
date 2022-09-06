@@ -20,16 +20,16 @@ ETable2 * table2;
 
 // ƒл€ генерации таблиц с целью повышени€ точности используем double dmathFunc
 double dmathFunc(double x) {
-	return sin(x) / x;
+	return log(cos(x));
 }
 
 // ѕерва€ производна€ в точке x численным методом на основе центральных разностей
 double firstDerivative(double x) {
-	return cos(x) / x - dmathFunc(x) / x ;
+	return -tan(x);
 }
 // ¬тора€ производна€ в точке x численным методом
 double secondDerivative(double x) {
-	return -dmathFunc(x) - 2 * cos(x) / (x * x) + 2 * sin(x) / (x * x * x);
+    return -(1 / (cos(x) * cos(x)));
 }
 
 // ѕолином нулевой степени реализуетс€ - пр€мой табличный метод

@@ -6,7 +6,8 @@
 #include "vpv-lab2.h"
 
 // массив коэффициентов
-float flCoef[LEN_POLINOM] = { 1., -DIV1_FACT3, DIV1_FACT5, -DIV1_FACT7, DIV1_FACT9 };
+float flCoef[LEN_POLINOM] = {KOEF1, KOEF2, KOEF3, KOEF4, KOEF5, KOEF6, KOEF7, KOEF8, KOEF9, KOEF10, KOEF11, KOEF12,
+                             KOEF13,};
 
 // Факториал для int - не может иметь n > 12
 double factorial(int n) {
@@ -62,21 +63,24 @@ float flNoCyNoGorn(float x) {
 }
 // Цикл схемы Горнера
 float flCycleGorn(float x) {
-	float x2 = x * x, sum = 0.;
-	for (int n = LEN_POLINOM; n > 0; n--)
-		sum = sum * x2 + flCoef[n-1];
-	return sum;
+	float x2 = x * x, sum = flCoef[LEN_POLINOM-1];
+	for (int n = LEN_POLINOM-1; n > 0; n--)
+		sum = sum * x2 - flCoef[n-1];
+	return sum * x2;
 }
 
 // Бесцикловая схема Горнера классическая sin(x)/x = (((a[4]*x^2 + a[3])*x^2 + a[2])*x^2 + a[1])*x^2 + a[0]
 float flNoCyGornArr(float x) {
 	float x2 = x * x; // за скобки выносится x^2
-	return (((flCoef[4] * x2 + flCoef[3])*x2 + flCoef[2])*x2 + flCoef[1])*x2 + flCoef[0];
+    return ((((((((((((flCoef[12] * x2 - flCoef[11]) * x2 - flCoef[10]) * x2 - flCoef[9]) * x2 - flCoef[8]) * x2 -
+                   flCoef[7]) * x2 - flCoef[6]) * x2 - flCoef[5]) * x2 - flCoef[4]) * x2 - flCoef[3]) * x2 -
+              flCoef[2]) * x2 - flCoef[1]) * x2 - flCoef[0]) * x2;
 }
 
 // Бесцикловая схема Горнера - константы вместо элементов массива
 float flNoCyGornConst(float x) {
 	float x2 = x * x;
-	return (((x2 * DIV1_FACT9 - DIV1_FACT7) * x2 + DIV1_FACT5) * x2 - DIV1_FACT3) * x2 + (float)1.;
+	return ((((((((((((KOEF13 * x2 - KOEF12) * x2 - KOEF11) * x2 - KOEF10) * x2 - KOEF9) * x2 - KOEF8) * x2 - KOEF7) *
+                 x2 - KOEF6) * x2 - KOEF5) * x2 - KOEF4) * x2 - KOEF3) * x2 - KOEF2) * x2 - KOEF1) * x2;
 }
 
